@@ -1,3 +1,9 @@
+import asyncio
+import nest_asyncio
+
+# abilita asyncio dentro Streamlit (event loop multiplo)
+nest_asyncio.apply()
+asyncio.set_event_loop(asyncio.new_event_loop())
 import streamlit as st
 from src.ib_client import IBClient
 from src.volatility import HistoricalVolatility
