@@ -14,9 +14,15 @@ st.set_page_config(page_title="Option Writing Scorer", layout="wide")
 
 # Sidebar: credenziali e connessione IB
 st.sidebar.title("🔑 Config IB")
-host = st.secrets["IB"]["host"]
-port = st.secrets["IB"]["port"]
-client_id = st.secrets["IB"]["client_id"]
+ib_conf = st.secrets.get("IB", {})
+
+host      = ib_conf.get("host", "127.0.0.1")
+port      = ib_conf.get("port", 7497)
+client_id = ib_conf.get("client_id", 1)
+
+# Avviso in caso di fallback demo
+if "IB" not in st.secrets:
+    st.warning("⚠️ Nessuna credenziale IB trovata, uso valori di default per demo")
 
 ib = safe_connect(host, port, client_id)
 
