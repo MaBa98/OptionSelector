@@ -3,3 +3,4 @@ ib_insync
 pandas
 numpy
 pytest
+nest_asyncio
