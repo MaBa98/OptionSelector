@@ -1,0 +1,5 @@
+streamlit
+ib_insync
+pandas
+numpy
+pytest
